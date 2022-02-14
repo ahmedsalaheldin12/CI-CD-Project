@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  labels:
+    name: redis
+    app: demo-python-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-python-app
+      name: python-redis 
+  template:
+    metadata:
+      name: redis
+      labels:
+        name: redis
+        app: demo-python-app
+    spec:
+      containers:
+        - name: redis
+          image: gcr.io/mythical-height-337311/redisimage:latest
+          ports:
+            - containerPort: 6379

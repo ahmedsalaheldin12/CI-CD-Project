@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: expose-app
+  labels:
+    name:  expose-app
+    app: demo-python-app
+spec:
+  type: loadBalancer
+  ports:
+   - port: 8000
+     targetPort: 8000
+  selector:
+     app: demo-python-app
+     name: python-redis

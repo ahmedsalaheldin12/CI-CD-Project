@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-redis
+  labels:
+    app: demo-python-app
+    name: python-redis
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo-python-app
+      name: python-redis 
+  template:
+    metadata:
+      name: python-redis
+      labels:
+        app: demo-python-app
+        name: python-redis
+    spec:
+      containers:
+       - name: python-redis
+         image: gcr.io/mythical-height-337311/dockerizedimage:latest
+         ports:
+          - containerPort: 8000
+         env:
+          - name: ENVIRONMENT
+            value: "DEV"
+          - name: HOST
+            value: "localhost"
+          - name: PORT
+            value: "8000"
+          - name: REDIS_HOST
+            value: "ahmed"
+          - name: REDIS_PORT
+            value: "6379"
+          - name: REDIS_DB
+            value: "0"
