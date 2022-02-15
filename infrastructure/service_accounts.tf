@@ -41,3 +41,14 @@ resource "google_project_iam_binding" "vm_service_account_role" {
     "serviceAccount:${google_service_account.vm_service_account.email}"
   ]
 }
+
+resource "google_project_iam_binding" "vm_service_account_role2" {
+  project = "lustrous-maxim-341315"
+  role    = "roles/container.developer"
+  depends_on = [
+    google_service_account.vm_service_account
+  ]
+  members = [
+    "serviceAccount:${google_service_account.vm_service_account.email}"
+  ]
+}
