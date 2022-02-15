@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
         - name: redis
-          image: gcr.io/mythical-height-337311/redisimage:latest
+          image: redis
           ports:
             - containerPort: 6379
