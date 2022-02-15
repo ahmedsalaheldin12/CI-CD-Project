@@ -21,6 +21,7 @@ pipeline {
        script {
         withCredentials([file(credentialsId: 'cluster_credintials', variable: 'config_file')]) {
           sh """
+              gcloud container clusters get-credentials my-gke-cluster --region europe-west2 --project lustrous-maxim-341315
               kubectl apply -f . --kubeconfig=$config_file
           """
         }
