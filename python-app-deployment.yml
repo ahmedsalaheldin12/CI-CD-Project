@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
        - name: python-redis
-         image: gcr.io/mythical-height-337311/dockerizedimage:latest
+         image: ahmedsalahh12/python-rediss
          ports:
           - containerPort: 8000
          env:
