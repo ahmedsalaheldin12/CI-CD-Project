@@ -1,0 +1,45 @@
+  - hosts: localhost
+    tasks:
+    - name: Connect to GKE cluster
+      shell: gcloud container clusters get-credentials my-gke-cluster --region europe-west2 --project lustrous-maxim-341315
+
+
+    - name: Create a k8s namespace
+      kubernetes.core.k8s:
+        name: jenkins
+        api_version: v1
+        kind: Namespace
+        state: present
+
+
+    - name: Create a Deployment by reading the definition from a local file
+      kubernetes.core.k8s:
+        state: present
+        #src: /testing/deployment.yml
+        src: /home/ansible/master.yaml
+
+
+    -  name: Create a service to expose jenkins
+        kubernetes.core.k8s:
+        state: present
+        #src: /testing/deployment.yml
+        src: /home/ansible/loadbalancer.yaml
+
+
+    -    name: Create a slave agent
+          kubernetes.core.k8s:
+          state: present
+        #src: /testing/deployment.yml
+          src: /home/ansible/slave_agent.yaml
+
+    -   name: Create a clusterIP service
+        kubernetes.core.k8s:
+          state: present
+        #src: /testing/deployment.yml
+          src: /home/ansible/cluster.yaml
+
+    -    name: Create a ssh service
+          kubernetes.core.k8s:
+          state: present
+        #src: /testing/deployment.yml
+          src: /home/ansible/slave-service.yaml
