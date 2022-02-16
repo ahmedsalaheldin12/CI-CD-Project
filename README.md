@@ -23,11 +23,11 @@ RUN pip install -r requirements.txt
 
 - Apply the infrastructure on GCP using Terraform.
 
-bash
+```bash
 terraform init 
 terraform plan
 terraform apply
-
+```
 
 - SSH into the private instance and start deploying Jenkins with ansible on your K8s cluster
 
