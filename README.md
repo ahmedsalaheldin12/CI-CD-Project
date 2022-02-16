@@ -1,4 +1,4 @@
-# SIMPLE PYTHON APP DEPLOYMENT USING TERRAFORM&GCP.
+# SIMPLE PYTHON APP DEPLOYMENT USING TERRAFORM,JENKINS,DOCKER,ANSIBLE&GCP.
 
 A simple python web-app using [redis](https://redis.io/) for caching, Deployed on a full GKE cluster using [Terraform](https://www.terraform.io/)
 
@@ -29,10 +29,12 @@ terraform plan
 terraform apply
 
 
-- SSH into the private instance and start deploying your K8s cluster
+- SSH into the private instance and start deploying Jenkins with ansible on your K8s cluster
 
 bash
-kubectl apply -f "add file name here"
+ansible-playbook playbook.yaml
+
+- Deploy backend application on kuberetes using jenkins piepline
 
 
 ## Contributing
