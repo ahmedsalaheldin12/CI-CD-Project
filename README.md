@@ -18,8 +18,9 @@ I used the python application in [DevOps-Challenge-Demo-Code](https://github.com
 
 - Use the package manager [pip](https://pypi.org/project/pip/) to install the dependencies into your Docker file.
 
-bash
+```bash
 RUN pip install -r requirements.txt
+```
 
 - Apply the infrastructure on GCP using Terraform.
 
@@ -31,8 +32,9 @@ terraform apply
 
 - SSH into the private instance and start deploying Jenkins with ansible on your K8s cluster
 
-bash
+```bash
 ansible-playbook playbook.yaml
+```
 
 - Deploy backend application on kuberetes using jenkins piepline
 
