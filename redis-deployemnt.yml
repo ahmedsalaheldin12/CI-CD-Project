@@ -11,7 +11,7 @@ spec:
   selector:
     matchLabels:
       app: demo-python-app
-      name: python-redis 
+      name: redis
   template:
     metadata:
       name: redis
