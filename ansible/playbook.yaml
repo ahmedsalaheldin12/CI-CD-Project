@@ -20,14 +20,14 @@
 
 
     -  name: Create a service to expose jenkins
-        kubernetes.core.k8s:
+       kubernetes.core.k8s:
         state: present
         #src: /testing/deployment.yml
         src: /home/ansible/loadbalancer.yaml
 
 
     -    name: Create a slave agent
-          kubernetes.core.k8s:
+         kubernetes.core.k8s:
           state: present
         #src: /testing/deployment.yml
           src: /home/ansible/slave_agent.yaml
@@ -39,7 +39,7 @@
           src: /home/ansible/cluster.yaml
 
     -    name: Create a ssh service
-          kubernetes.core.k8s:
+         kubernetes.core.k8s:
           state: present
         #src: /testing/deployment.yml
           src: /home/ansible/slave-service.yaml
