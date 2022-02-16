@@ -62,7 +62,7 @@ resource "google_compute_instance" "private_vm" {
   SCRIPT
 
 }
-## subnet without access to the internet.
+
 resource "google_compute_subnetwork" "Restricted" {
   name          = "restricted-subnet"
   ip_cidr_range = "10.0.2.0/24"
