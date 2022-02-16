@@ -7,7 +7,7 @@ metadata:
     name:  expose-app
     app: demo-python-app
 spec:
-  type: loadBalancer
+  type: LoadBalancer
   ports:
    - port: 8000
      targetPort: 8000
